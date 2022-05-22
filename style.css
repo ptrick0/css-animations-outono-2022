@@ -1,0 +1,218 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Comic Sans", "Comic", sans-serif;
+}
+
+.header {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #400100, #b50301, #912a01, #d24517, #ff5102, #feca53);
+    background-size: 300% 300%;
+    animation: backgroundTransition 5s ease-in-out infinite;
+}
+
+@keyframes backgroundTransition {
+    0% {
+        background-position: 0% 80%;
+    }
+    50% {
+        background-position: 80% 100%;
+    }
+    100% {
+        background-position: 0% 90%;
+    }
+}
+
+.card {
+    width: 70%;
+    height: 70vh;
+    background-image: url('./img/inicio-outono.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    filter: contrast(0.9);
+    transition: 0.3s ease-in-out;
+}
+
+.card-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card-wrapper::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    display: block;
+    border-bottom: 3px solid #400100;
+    border-top: 3px solid #400100;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.card-wrapper h2, .card-group-element h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    color: #400100;
+    transition: 0.3s ease-in-out;
+}
+
+.card-wrapper p, .card-group-element p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+    visibility: hidden;
+    opacity: 0;
+    color: #400100;
+    transition: 0.3s ease-in-out;
+}
+
+.card:hover, .card-group-element:hover {
+    filter: unset;
+}
+
+.card:hover > .card-wrapper p, .card-group-element:hover > .card-group-element-wrapper p {
+    font-size: 24px;
+    visibility: visible;
+    opacity: 1;
+}
+
+.card:hover > .card-wrapper::before {
+    visibility: visible;
+    width: 50vw;
+    height: 60vh;
+    opacity: 1;
+}
+
+/* group */
+.card-group {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.card-group-element {
+    width: 30%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    filter: contrast(0.8);
+}
+
+.card-group-element-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card-group-element-wrapper:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    border: 1px solid #400100;
+    transition: 0.5s ease-in-out;
+}
+
+.card-group-element-wrapper {
+    padding: 20px;
+}
+
+.card-group-element:hover > .card-group-element-wrapper:before {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.card-group-element:nth-child(1) {
+    background-image: url("./img/outono-pet.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.card-group-element:nth-child(2) {
+    background-image: url("./img/outono-pet-2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.card-group-element:nth-child(3) {
+    background-image: url("./img/outono-pet-3.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+/* footer */
+.footer {
+    width: 100%;
+    height: 100px;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d24517;
+    color: #400100;
+}
+
+.footer p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* responsive */
+@media (max-width: 800px) {
+    .card-wrapper h2 {
+        font-size: 42px;
+    }
+
+    .card-wrapper p {
+        font-size: 16px;
+    }
+
+    .card-group {
+        flex-direction: column;
+        margin-top: 0;
+    }
+
+    .card-group-element {
+        margin-top: 3rem;
+        width: 80%;
+    }
+
+    .card-group-element-wrapper h2 {
+        font-size: 36px;
+    }
+
+    .card-group-element-wrapper p {
+        font-size: 14px;
+    }
+}
